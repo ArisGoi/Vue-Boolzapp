@@ -15,6 +15,7 @@
     --c-bg-top: #EAEAEA;
     --c-bg-app: #FFFFFF;
     --c-bg-chat: url(../img/mine.jpg);
+    --c-bg-sendbox: #f8efe5;
 
     /* text colors */
     --c-text_main: #333;
@@ -191,6 +192,24 @@ h4{
 }
 
 .sendbox{
-    height: 95px;
-    background-color: var(--c-bg-top);
+    height: 80px;
+    background-color: var(--c-bg-sendbox);
+    display: flex;
+    padding: 10px;
+}
+
+.sendbox div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 45px;
+    cursor: pointer;
+    color: var(--c-text_second);
+    font-size: 28px;
+}
+.sendbox input{
+    flex-grow: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
 }
