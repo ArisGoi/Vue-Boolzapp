@@ -23,8 +23,8 @@
 
     /* events color */
     --c-notify: #8EDAFC;
-    --c-recieve: #D5F9BA;
-    --c-sent: #FFFFFF;
+    --c-sent: #D5F9BA;
+    --c-recieve: #FFFFFF;
 
     /* borders */
     --border-thin: 1px solid #ddd;
@@ -186,11 +186,6 @@ h4{
 
 /* ------------------------- */
 /* Only Right */
-.messages-container{
-    flex-grow: 1;
-    background-image: var(--c-bg-chat);
-}
-
 .sendbox{
     height: 80px;
     background-color: var(--c-bg-sendbox);
@@ -212,4 +207,47 @@ h4{
     border: none;
     border-radius: 10px;
     padding: 15px;
+}
+
+.messages-container{
+    flex-grow: 1;
+    background-image: var(--c-bg-chat);
+    overflow-y: scroll;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Messages */
+.msg{
+    min-width: 150px;
+    max-width: 500px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 16px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.msg.sent{
+    background-color: var(--c-sent);
+    align-self: flex-end;
+}
+
+.msg.received{
+    background-color: var(--c-recieve);
+    align-self: flex-start;
+}
+
+.msg p{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.msg h6{
+    margin-left: auto;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--c-text_second);
 }
