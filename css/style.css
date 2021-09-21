@@ -17,8 +17,8 @@
     --c-bg-chat: url(../img/mine.jpg);
 
     /* text colors */
-    --c-text_main: black;
-    --c-text_second: #B6B6B6;
+    --c-text_main: #333;
+    --c-text_second: #949494;
 
     /* events color */
     --c-notify: #8EDAFC;
@@ -29,6 +29,7 @@
 /* common */
 body{
     font-family: 'Lato', sans-serif;
+    font-weight: 400;
     height: 100vh;
     width: 100%;
     background: var(--c-logo01);
@@ -45,6 +46,8 @@ body{
     width: 1800px;
     max-width: 1800px;
     height: 90vh;
+
+    box-shadow: 0px 0px 10px -8px rgba(0,0,0,0.75);
 
     display: flex;
 }
@@ -70,9 +73,50 @@ body{
 .topbar{
     height: 80px;
     background-color: var(--c-bg-top);
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar h2{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-text_main);
+}
+.topbar h3{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--c-text_second);
+}
+
+.topbar .icons-container{
+    margin-left: auto;
+}
+.topbar .icons-container i{
+    font-size: 25px;
+    margin-left: 15px;
+    color: var(--c-text_second);
+}
+
+
+.rnd-image{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.rnd-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 /* Only Left */
+.app-left > *{
+    border-right: 2px solid var(--c-logo02);
+}
+
 .activate-desktop-notify{
     height: 90px;
     background-color: var(--c-notify);
