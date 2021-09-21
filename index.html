@@ -60,7 +60,7 @@
             <!-- Lista contatti e chat iniziate -->
             <div class="contacts-list">
                 <ul>
-                    <li v-for="(contact, i) in contacts">
+                    <li v-for="(contact, i) in contacts" :key="i" @click="chooseFriend(i)">
                         <div class="rnd-image">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         </div>
@@ -76,10 +76,10 @@
             <!-- TopBar -->
             <div class="topbar">
                 <div class="rnd-image">
-                    <img src="img/avatar_1.jpg" alt="">
+                    <img :src="'img/avatar' + currContactInfo.avatar +'.jpg'" alt="">
                 </div>
                 <div>
-                    <h2>Michelle</h2>
+                    <h2>{{currContactInfo.name}}</h2>
                     <h3>Ultimo acceso oggi alle...</h3>
                 </div>
                 <div class="icons-container">
@@ -91,17 +91,9 @@
 
             <!-- Container Messaggi -->
             <div class="messages-container">
-                <div class="msg sent">
-                    <p>Hai portato a spasso il cane?</p>
-                    <h6>10/01 20:45</h6>
-                </div>
-                <div class="msg sent">
-                    <p>Ricordati di dargli da mangiare</p>
-                    <h6>10/01 20:45</h6>
-                </div>
-                <div class="msg received">
-                    <p>Tutto fatto!</p>
-                    <h6>10/01 20:47</h6>
+                <div v-for="(msg, i) in currContactInfo.messages" :key="i" class="msg" :class="currContactInfo.messages[i].status">
+                    <p>{{msg.message}}</p>
+                    <h6>{{msg.date}}</h6>
                 </div>
             </div>
 

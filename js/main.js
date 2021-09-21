@@ -1,6 +1,7 @@
 const app = new Vue({
     el: "#root",
     data:{
+        currContactInfo: {},
         contacts: [
             {
                 name: 'Michele',
@@ -85,6 +86,9 @@ const app = new Vue({
         ]
     },
     methods:{
-        
+        chooseFriend: function(index){
+            console.log(index);
+            this.currContactInfo = this.contacts[index];
+        },
     },
 });
