@@ -61,17 +61,18 @@ body{
 }
 
 .app-right{
-    background-color: brown;
+    /* background-color: brown; */
     height: 100%;
     width: 70%;
 }
 
+/* left & Right (common) */
 .topbar{
     height: 80px;
     background-color: var(--c-bg-top);
 }
 
-/* left */
+/* Only Left */
 .activate-desktop-notify{
     height: 90px;
     background-color: var(--c-notify);
@@ -85,4 +86,16 @@ body{
 .contacts-list{
     background-color: var(--c-bg-app);
     flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Only Right */
+.messages-container{
+    flex-grow: 1;
+    background-image: var(--c-bg-chat);
+}
+
+.sendbox{
+    height: 95px;
+    background-color: var(--c-bg-top);
 }
