@@ -40,6 +40,24 @@ body{
     justify-content: center;
 }
 
+/* typo */
+h2{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-text_main);
+}
+h3{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--c-text_second);
+}
+h4{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--c-text_main);
+    text-decoration: underline;
+}
+
 /* APP */
 .app {
     background-color: var(--c-bg-app);
@@ -69,6 +87,7 @@ body{
     width: 70%;
 }
 
+/* ------------------------- */
 /* left & Right (common) */
 .topbar{
     height: 80px;
@@ -78,17 +97,6 @@ body{
     align-items: center;
 }
 
-.topbar h2{
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--c-text_main);
-}
-.topbar h3{
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--c-text_second);
-}
-
 .topbar .icons-container{
     margin-left: auto;
 }
@@ -96,8 +104,8 @@ body{
     font-size: 25px;
     margin-left: 15px;
     color: var(--c-text_second);
+    cursor: pointer;
 }
-
 
 .rnd-image{
     width: 65px;
@@ -112,6 +120,8 @@ body{
     object-fit: contain;
 }
 
+
+/* ------------------------- */
 /* Only Left */
 .app-left > *{
     border-right: 2px solid var(--c-logo02);
@@ -120,11 +130,40 @@ body{
 .activate-desktop-notify{
     height: 90px;
     background-color: var(--c-notify);
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.activate-desktop-notify .rnd-image{
+    background-color: var(--c-bg-app);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.activate-desktop-notify .rnd-image i{
+    color: var(--c-notify);
+    font-size: 25px;
 }
 
 .search-bar{
     height: 60px;
     background-color: var(--c-bg-top);
+    display: flex;
+    padding: 10px;
+}
+.src-before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--c-bg-app);
+    padding: 0 30px;
+    border-right: 1px solid #bbb;
+    color: var(--c-text_second);
+}
+.search-bar input{
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
 }
 
 .contacts-list{
@@ -133,6 +172,7 @@ body{
     overflow-y: auto;
 }
 
+/* ------------------------- */
 /* Only Right */
 .messages-container{
     flex-grow: 1;
