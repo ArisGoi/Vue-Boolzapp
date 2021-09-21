@@ -24,6 +24,9 @@
     --c-notify: #8EDAFC;
     --c-recieve: #D5F9BA;
     --c-sent: #FFFFFF;
+
+    /* borders */
+    --border-thin: 1px solid #ddd;
 }
 
 /* common */
@@ -157,7 +160,7 @@ h4{
     justify-content: center;
     background-color: var(--c-bg-app);
     padding: 0 30px;
-    border-right: 1px solid #bbb;
+    border-right: var(--border-thin);
     color: var(--c-text_second);
 }
 .search-bar input{
@@ -170,6 +173,14 @@ h4{
     background-color: var(--c-bg-app);
     flex-grow: 1;
     overflow-y: auto;
+}
+.contacts-list li{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.contacts-list li:not(:first-child){
+    border-top: var(--border-thin);
 }
 
 /* ------------------------- */

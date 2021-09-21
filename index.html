@@ -21,7 +21,9 @@
 <body>
     <div class="app" id="root">
 
+<!-- Sezione di sinistra -->
         <section class="app-left">
+            <!-- TopBar -->
             <div class="topbar">
                 <div class="rnd-image">
                     <img src="img/avatar_io.jpg" alt="">
@@ -36,6 +38,7 @@
                 </div>
             </div>
 
+            <!-- Avviso notifiche -->
             <div class="activate-desktop-notify">
                 <div class="rnd-image">
                     <i class="fas fa-bell-slash"></i>
@@ -46,6 +49,7 @@
                 </div>
             </div>
 
+            <!-- Barra di ricerca (left) -->
             <div class="search-bar">
                 <div class="src-before">
                     <i class="fas fa-search"></i>
@@ -53,10 +57,21 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
-            <div class="contacts-list"></div>
+            <!-- Lista contatti e chat iniziate -->
+            <div class="contacts-list">
+                <ul>
+                    <li v-for="(contact, i) in contacts">
+                        <div class="rnd-image">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                        </div>
+                        <h2>{{contact.name}}</h2>
+                    </li>
+                </ul>
+            </div>
         </section>
 
 
+<!-- Sezione di destra -->
         <section class="app-right">
             <div class="topbar">
                 <div class="rnd-image">
