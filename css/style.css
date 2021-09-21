@@ -5,9 +5,68 @@
     box-sizing: border-box;
 }
 
+:root{
+    /* logo colors */
+    --c-logo01: #009688;
+    --c-logo02: #dadbd3;
+
+    /* main colors */
+    --c-selected: #E9EBEB;
+    --c-bg-top: #EAEAEA;
+    --c-bg-app: #FFFFFF;
+    --c-bg-chat: url(../img/mine.jpg);
+
+    /* text colors */
+    --c-text_main: black;
+    --c-text_second: #B6B6B6;
+
+    /* events color */
+    --c-notify: #8EDAFC;
+    --c-recieve: #D5F9BA;
+    --c-sent: #FFFFFF;
+}
+
 /* common */
 body{
     font-family: 'Lato', sans-serif;
     height: 100vh;
     width: 100%;
+    background: var(--c-logo01);
+    background: linear-gradient(180deg, var(--c-logo01) 15%, var(--c-logo02) 15%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* APP */
+.app {
+    background-color: var(--c-bg-app);
+    width: 1800px;
+    max-width: 1800px;
+    height: 90vh;
+
+    display: flex;
+}
+
+.app-left, .app-right{
+    display: flex;
+    flex-direction: column;
+}
+
+.app-left{
+    background-color: aqua;
+    height: 100%;
+    width: 30%;
+}
+
+.app-right{
+    background-color: brown;
+    height: 100%;
+    width: 70%;
+}
+
+.topbar{
+    height: 80px;
+    background-color: var(--c-bg-top);
 }
