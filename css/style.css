@@ -55,7 +55,7 @@ body{
 }
 
 .app-left{
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 100%;
     width: 30%;
 }
@@ -69,4 +69,20 @@ body{
 .topbar{
     height: 80px;
     background-color: var(--c-bg-top);
+}
+
+/* left */
+.activate-desktop-notify{
+    height: 90px;
+    background-color: var(--c-notify);
+}
+
+.search-bar{
+    height: 60px;
+    background-color: var(--c-bg-top);
+}
+
+.contacts-list{
+    background-color: var(--c-bg-app);
+    flex-grow: 1;
 }
