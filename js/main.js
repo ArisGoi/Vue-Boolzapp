@@ -1,6 +1,9 @@
 const app = new Vue({
     el: "#root",
     data:{
+        // RICERCA
+        search: "",
+
         // INVIO MESSAGGIO
         sendBoxInput: "",
 
@@ -90,27 +93,40 @@ const app = new Vue({
         ]
     },
     methods:{
-        // selezione del contatto
+        /**
+         * SELEZIONE CONTATTO
+         * Ottenendo un valore "index"
+         * Inposta il contatto corrente ("currentContact") = all'index
+        */
         chooseFriend: function(index){
             this.currentContact = index;
         },
 
-        // Invio del messaggio
+        /**
+         * INVIO MESSAGGIO
+         * Ottenendo un testo da un input
+         * Pusha il testo nella lista dei messaggi, con valore "Sent"
+         */
         sendMessage: function(){
             this.contacts[this.currentContact].messages.push({
-                    date: '00/00/2021 00:00:00',
-                    message: this.sendBoxInput,
-                    status: 'sent'
-                });
-
+                date: '00/00/2021 00:00:00',
+                message: this.sendBoxInput,
+                status: 'sent'
+            });
+            // Richiamo la funzione di risposta automatica
+            this.autoReply(this.sendBoxInput);
+            // svuoto il campo input
             this.sendBoxInput = "";
-
-            this.autoReply();
         },
 
-        // risposta automatica
-        autoReply() {
-            var reply = "ok";
+        /**
+         * RISPOSTA AUTOMATICA
+         * Richiamata da sendMessage()
+         * ottiene il valore di "reply" e elabora una risposta
+         * Pusha il testo nella lista dei messaggi, con valore "received"
+         */
+        autoReply(lastMsg) {
+            var reply = lastMsg;
             setTimeout(() => {
                 this.contacts[this.currentContact].messages.push({
                     date: '00/00/2021 00:00:00',
@@ -118,7 +134,20 @@ const app = new Vue({
                     status: 'received'
                 });
             }, 2000);
-        }
+        },
+
+        /**
+         * FUNZIONE RICERCA CONTATTO
+         * ottendendo l'indice del contatto e un'input "text"
+         * Ritorna true o false se il nome del contatto contiene o meno le lettere inserite
+        */
+        searchResult: function(index){
+            let uName = this.contacts[index].name.toLowerCase()
+            if (uName.includes(this.search)){
+                return true;
+            }
+            return false;
+        },
         
     },
 });

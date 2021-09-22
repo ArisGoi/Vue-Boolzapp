@@ -54,7 +54,9 @@
                 <div class="src-before">
                     <i class="fas fa-search"></i>
                 </div>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" 
+                    placeholder="Cerca o inizia una nuova chat"
+                    v-model="search">
             </div>
 
             <!-- Lista contatti e chat iniziate -->
@@ -63,7 +65,8 @@
                     <li v-for="(contact, i) in contacts"
                         :key="i" 
                         @click="chooseFriend(i)" 
-                        :class="currentContact == i ? 'active' : null">
+                        :class="currentContact == i ? 'active' : null"
+                        v-if="searchResult(i)">
 
                         <div class="rnd-image">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="foto contatto">
