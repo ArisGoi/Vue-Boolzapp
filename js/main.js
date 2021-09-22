@@ -4,7 +4,6 @@ const app = new Vue({
         // INVIO MESSAGGIO
         sendBoxInput: "",
 
-
         // CONTATTI
         currentContact: 0,
         contacts: [
@@ -91,10 +90,12 @@ const app = new Vue({
         ]
     },
     methods:{
+        // selezione del contatto
         chooseFriend: function(index){
             this.currentContact = index;
         },
 
+        // Invio del messaggio
         sendMessage: function(){
             this.contacts[this.currentContact].messages.push({
                     date: '00/00/2021 00:00:00',
@@ -103,6 +104,21 @@ const app = new Vue({
                 });
 
             this.sendBoxInput = "";
+
+            this.autoReply();
         },
+
+        // risposta automatica
+        autoReply() {
+            var reply = "ok";
+            setTimeout(() => {
+                this.contacts[this.currentContact].messages.push({
+                    date: '00/00/2021 00:00:00',
+                    message: reply,
+                    status: 'received'
+                });
+            }, 2000);
+        }
+        
     },
 });
