@@ -63,7 +63,7 @@
                     <li v-for="(contact, i) in contacts"
                         :key="i" 
                         @click="chooseFriend(i)" 
-                        :class="currContactInfo.avatar == contact.avatar ? 'active' : null">
+                        :class="currentContact == i ? 'active' : null">
 
                         <div class="rnd-image">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="foto contatto">
@@ -81,10 +81,10 @@
             <!-- TopBar -->
             <div class="topbar">
                 <div class="rnd-image">
-                    <img :src="'img/avatar' + currContactInfo.avatar +'.jpg'" alt="">
+                    <img :src="'img/avatar' + contacts[currentContact].avatar +'.jpg'" alt="foto contatto">
                 </div>
                 <div>
-                    <h2>{{currContactInfo.name}}</h2>
+                    <h2>{{contacts[currentContact].name}}</h2>
                     <h3>Ultimo acceso oggi alle...</h3>
                 </div>
                 <div class="icons-container">
@@ -96,7 +96,7 @@
 
             <!-- Container Messaggi -->
             <div class="messages-container">
-                <div v-for="(msg, i) in currContactInfo.messages" :key="i" class="msg" :class="currContactInfo.messages[i].status">
+                <div v-for="(msg, i) in contacts[currentContact].messages" :key="i" class="msg" :class="contacts[currentContact].messages[i].status">
                     <p>{{msg.message}}</p>
                     <h6>{{msg.date}}</h6>
                 </div>
@@ -105,7 +105,9 @@
             <!-- Box scrittura messaggio -->
             <div class="sendbox">
                 <div><i class="far fa-smile"></i></div>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" 
+                    v-model="sendBoxInput"
+                    v-on:keyup.enter="sendMessage()">
                 <div><i class="fas fa-microphone"></i></div>
             </div>
         </section>

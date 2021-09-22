@@ -1,28 +1,12 @@
 const app = new Vue({
     el: "#root",
     data:{
-        currContactInfo: {
-            name: 'Michele',
-                avatar: '_1',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
-                        status: 'received'
-                    }
-                ],
-        },
+        // INVIO MESSAGGIO
+        sendBoxInput: "",
+
+
+        // CONTATTI
+        currentContact: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -108,7 +92,11 @@ const app = new Vue({
     },
     methods:{
         chooseFriend: function(index){
-            this.currContactInfo = this.contacts[index];
+            this.currentContact = index;
+        },
+
+        sendMessage: function(){
+            alert(this.sendBoxInput);
         },
     },
 });
