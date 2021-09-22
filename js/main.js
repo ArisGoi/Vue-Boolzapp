@@ -122,18 +122,22 @@ const app = new Vue({
         /**
          * RISPOSTA AUTOMATICA
          * Richiamata da sendMessage()
-         * ottiene il valore di "reply" e elabora una risposta
+         * ottiene il valore dell'ultimo messaggio e elabora una risposta
+         * Dopo un numero di secondi...
          * Pusha il testo nella lista dei messaggi, con valore "received"
          */
         autoReply(lastMsg) {
-            var reply = lastMsg;
+            let reply = lastMsg;
+
+            const contactToSend = this.currentContact;
+
             setTimeout(() => {
-                this.contacts[this.currentContact].messages.push({
+                this.contacts[contactToSend].messages.push({
                     date: '00/00/2021 00:00:00',
                     message: reply,
                     status: 'received'
                 });
-            }, 2000);
+            }, 1000 * 2);
         },
 
         /**
