@@ -138,6 +138,21 @@ const app = new Vue({
          */
         autoReply(lastMsg) {
             let reply = lastMsg;
+            switch(lastMsg.toLowerCase()){
+                case 'ciao':
+                    reply = 'ciao anche a te!';
+                break;
+
+                case 'che ore sono?':
+                    reply = `Guarda che sul telefono hai l'orologio!! Comunque sono le ${this.askDate()}`;
+                break;
+
+                case 'chi sei?':
+                    reply = `Ciaoo! Mi chiamo ${this.contacts[this.currentContact].name}`;
+                break;
+                    
+                default: reply =  'ok'
+            };
 
             const contactToSend = this.currentContact;
 
@@ -149,6 +164,12 @@ const app = new Vue({
                 });
             }, 1000 * 2);
         },
+
+        askDate() {
+            const current = new Date();
+            const date = `${current.getHours()}:${current.getMinutes()}`;
+            return date;
+          },
 
         /**
          * FUNZIONE RICERCA CONTATTO
