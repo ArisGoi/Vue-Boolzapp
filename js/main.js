@@ -16,17 +16,17 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30 del 10/01/2020',
                         message: 'Hai portato a spasso il cane?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: '15:50 del 10/01/2020',
                         message: 'Ricordati di dargli da mangiare',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: '16:15 del 10/01/2020',
                         message: 'Tutto fatto!',
                         status: 'received'
                     }
@@ -37,17 +37,17 @@ const app = new Vue({
                 avatar: '_2',
                 visible: true,
                 messages: [{
-                    date: '20/03/2020 16:30:00',
+                    date: '16:30 del 20/03/2020',
                     message: 'Ciao come stai?',
                     status: 'sent'
                 },
                     {
-                        date: '20/03/2020 16:30:55',
+                        date: '16:30 del 20/03/2020',
                         message: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received'
                     },
                     {
-                        date: '20/03/2020 16:35:00',
+                        date: '16:35 del 20/03/2020',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'received'
                     }
@@ -58,17 +58,17 @@ const app = new Vue({
                 avatar: '_3',
                 visible: true,
                 messages: [{
-                    date: '28/03/2020 10:10:40',
+                    date: '10:10 del 28/03/2020',
                     message: 'La Marianna va in campagna',
                     status: 'received'
                 },
                     {
-                        date: '28/03/2020 10:20:10',
+                        date: '10:20 del 28/03/2020',
                         message: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent'
                     },
                     {
-                        date: '28/03/2020 16:15:22',
+                        date: '16:15 del 28/03/2020',
                         message: 'Ah scusa!',
                         status: 'received'
                     }
@@ -79,12 +79,12 @@ const app = new Vue({
                 avatar: '_4',
                 visible: true,
                 messages: [{
-                    date: '10/01/2020 15:30:55',
+                    date: '15:30 del 10/01/2020',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
                     status: 'sent'
                 },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: '15:50 del 10/01/2020',
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received'
                     }
@@ -103,13 +103,23 @@ const app = new Vue({
         },
 
         /**
+         * FUNZIONE GET DATE
+         * Restituisce la data e l'ora corretti del momento in cui viene richiamata
+        */
+        currentDate() {
+            const current = new Date();
+            const date = `${current.getHours()}:${current.getMinutes()} del ${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+            return date;
+          },
+
+        /**
          * INVIO MESSAGGIO
          * Ottenendo un testo da un input
          * Pusha il testo nella lista dei messaggi, con valore "Sent"
          */
         sendMessage: function(){
             this.contacts[this.currentContact].messages.push({
-                date: '00/00/2021 00:00:00',
+                date: this.currentDate(),
                 message: this.sendBoxInput,
                 status: 'sent'
             });
@@ -133,7 +143,7 @@ const app = new Vue({
 
             setTimeout(() => {
                 this.contacts[contactToSend].messages.push({
-                    date: '00/00/2021 00:00:00',
+                    date: this.currentDate(),
                     message: reply,
                     status: 'received'
                 });
