@@ -59,12 +59,17 @@
 
             <!-- Lista contatti e chat iniziate -->
             <div class="contacts-list">
-                <ul>
-                    <li v-for="(contact, i) in contacts" :key="i" @click="chooseFriend(i)">
+                <ul> 
+                    <li v-for="(contact, i) in contacts"
+                        :key="i" 
+                        @click="chooseFriend(i)" 
+                        :class="currContactInfo.avatar == contact.avatar ? 'active' : null">
+
                         <div class="rnd-image">
-                            <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="foto contatto">
                         </div>
                         <h2>{{contact.name}}</h2>
+
                     </li>
                 </ul>
             </div>

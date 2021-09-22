@@ -44,6 +44,10 @@ body{
     justify-content: center;
 }
 
+.active{
+    background-color: rgb(204, 204, 204) !important;
+}
+
 /* typo */
 h2{
     font-size: 18px;
