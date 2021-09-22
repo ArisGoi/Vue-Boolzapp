@@ -127,7 +127,17 @@ const app = new Vue({
             this.autoReply(this.sendBoxInput);
             // svuoto il campo input
             this.sendBoxInput = "";
+
+            this.playSound('sound/send.mp3')
+
         },
+
+        playSound (sound) {
+            if(sound) {
+              var audio = new Audio(sound);
+              audio.play();
+            }
+          },
 
         /**
          * RISPOSTA AUTOMATICA
@@ -150,6 +160,10 @@ const app = new Vue({
                 case 'chi sei?':
                     reply = `Ciaoo! Mi chiamo ${this.contacts[this.currentContact].name}`;
                 break;
+
+                case 'sicuro di non aver sbagliato chat?':
+                    reply = `Ah scusa!`;
+                break;
                     
                 default: reply =  'ok'
             };
@@ -162,12 +176,13 @@ const app = new Vue({
                     message: reply,
                     status: 'received'
                 });
-            }, 1000 * 2);
+                this.playSound('sound/receive.mp3')
+            }, 1000 * 3);
         },
 
         askDate() {
             const current = new Date();
-            const date = `${current.getHours()}:${current.getMinutes()}`;
+            const date = `${current.getHours()} e ${current.getMinutes()}`;
             return date;
           },
 
