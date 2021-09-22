@@ -96,7 +96,13 @@ const app = new Vue({
         },
 
         sendMessage: function(){
-            alert(this.sendBoxInput);
+            this.contacts[this.currentContact].messages.push({
+                    date: '00/00/2021 00:00:00',
+                    message: this.sendBoxInput,
+                    status: 'sent'
+                });
+
+            this.sendBoxInput = "";
         },
     },
 });

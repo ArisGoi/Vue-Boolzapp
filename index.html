@@ -96,7 +96,11 @@
 
             <!-- Container Messaggi -->
             <div class="messages-container">
-                <div v-for="(msg, i) in contacts[currentContact].messages" :key="i" class="msg" :class="contacts[currentContact].messages[i].status">
+                <div v-for="(msg, i) in contacts[currentContact].messages" 
+                    :key="i" 
+                    class="msg" 
+                    :class="contacts[currentContact].messages[i].status">
+
                     <p>{{msg.message}}</p>
                     <h6>{{msg.date}}</h6>
                 </div>
@@ -105,9 +109,12 @@
             <!-- Box scrittura messaggio -->
             <div class="sendbox">
                 <div><i class="far fa-smile"></i></div>
-                <input type="text" placeholder="Scrivi un messaggio" 
-                    v-model="sendBoxInput"
-                    v-on:keyup.enter="sendMessage()">
+
+                <input type="text"
+                placeholder="Scrivi un messaggio" 
+                v-model="sendBoxInput"
+                v-on:keyup.enter="sendMessage()">
+
                 <div><i class="fas fa-microphone"></i></div>
             </div>
         </section>
