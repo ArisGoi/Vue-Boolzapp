@@ -112,18 +112,21 @@
             <!-- Box scrittura messaggio -->
             <div class="sendbox">
                 <div>
-                    <i class="far fa-smile emoji-trigger">
-                        <span class="addEmoji-box">
-                            <span @click="sendBoxInput += '😀'">😀</span>
-                            <span @click="sendBoxInput += '😜'">😜</span>
-                            <span @click="sendBoxInput += '🤬'">🤬</span>
-                            <span @click="sendBoxInput += '😱'">😱</span>
-                            <span @click="sendBoxInput += '😭'">😭</span>
-                            <span @click="sendBoxInput += '🥳'">🥳</span>
-                            <span @click="sendBoxInput += '👍'">👍</span>
-                            <span @click="sendBoxInput += '🖖'">🖖</span>
-                        </span>
-                    </i>
+                    <input type="checkbox" id="emoji_toggle">
+                    <label for="emoji_toggle">
+                        <i class="far fa-smile emoji-trigger">
+                            <span class="addEmoji-box">
+                                <span @click="sendBoxInput += '😀'">😀</span>
+                                <span @click="sendBoxInput += '😜'">😜</span>
+                                <span @click="sendBoxInput += '🤬'">🤬</span>
+                                <span @click="sendBoxInput += '😱'">😱</span>
+                                <span @click="sendBoxInput += '😭'">😭</span>
+                                <span @click="sendBoxInput += '🥳'">🥳</span>
+                                <span @click="sendBoxInput += '👍'">👍</span>
+                                <span @click="sendBoxInput += '🖖'">🖖</span>
+                            </span>
+                        </i>
+                    </label>
                 </div>
 
                 <input type="text"
