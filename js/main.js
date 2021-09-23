@@ -129,9 +129,12 @@ const app = new Vue({
             this.sendBoxInput = "";
 
             this.playSound('sound/sent.wav')
-
         },
 
+        /**
+         * RIPRODUCI SUONO
+         * riproduce un suono preso come parametro
+         */
         playSound (sound) {
             if(sound) {
               var audio = new Audio(sound);
@@ -208,11 +211,11 @@ const app = new Vue({
             }, 1000 * 3);
         },
 
-        askDate() {
-            const current = new Date();
-            const date = `${current.getHours()} e ${current.getMinutes()}`;
-            return date;
-          },
+            askDate() {
+                const current = new Date();
+                const date = `${current.getHours()} e ${current.getMinutes()}`;
+                return date;
+            },
 
         /**
          * FUNZIONE RICERCA CONTATTO
