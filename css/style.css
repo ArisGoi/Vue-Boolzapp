@@ -44,9 +44,6 @@ body{
     justify-content: center;
 }
 
-.active{
-    background-color: rgb(204, 204, 204) !important;
-}
 
 /* typo */
 h2{
@@ -187,6 +184,9 @@ h4{
 .contacts-list li:not(:first-child){
     border-top: var(--border-thin);
 }
+.contacts-list li.active{
+    background-color: rgb(204, 204, 204);
+}
 
 /* ------------------------- */
 /* Only Right */
@@ -254,4 +254,26 @@ h4{
     font-weight: 400;
     font-size: 12px;
     color: var(--c-text_second);
+}
+
+/* Section Emojii */
+.emoji-trigger{
+    position: relative;
+}
+
+.emoji-trigger:hover .addEmoji-box{
+    display: flex;
+}
+
+.addEmoji-box{
+    display: none;
+    position: absolute;
+    top: -220%;
+    left: 45%;
+    min-width: 350px;
+    justify-content: space-between;
+    background-color: var(--c-bg-sendbox);
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 15px;
 }

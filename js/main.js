@@ -150,7 +150,11 @@ const app = new Vue({
             let reply = lastMsg;
             switch(lastMsg.toLowerCase()){
                 case 'ciao':
-                    reply = 'ciao anche a te!';
+                    reply = 'Ciao anche a te!';
+                break;
+
+                case '🖖':
+                    reply = `🖖 Ciao anche a te!`;
                 break;
 
                 case 'che ore sono?':
@@ -176,9 +180,17 @@ const app = new Vue({
                 case 'male':
                     reply = `Che peccato! cosa ti è successo?`;
                 break;
-                
+
                 case 'non voglio dirlo':
                     reply = `Tieniti pure i tuoi segreti...`;
+                break;
+
+                case 'conosci mr.robot?':
+                    reply = `Non dovresti fare quel nome...`;
+                break;
+
+                case 'consigliami una serie tv':
+                    reply = `Non saprei... Molte serie belle le trovi su Netflix. A me sono piaciute molto Mr.Robot e Final Space`;
                 break;
                     
                 default: reply =  'ok'
