@@ -128,7 +128,7 @@ const app = new Vue({
             // svuoto il campo input
             this.sendBoxInput = "";
 
-            this.playSound('sound/send.mp3')
+            this.playSound('sound/sent.wav')
 
         },
 
@@ -163,6 +163,22 @@ const app = new Vue({
 
                 case 'sicuro di non aver sbagliato chat?':
                     reply = `Ah scusa!`;
+                break;
+
+                case 'come stai?':
+                    reply = `Bene grazie! e tu?`;
+                break;
+
+                case 'bene':
+                    reply = `mi fa piacere`;
+                break;
+                
+                case 'male':
+                    reply = `Che peccato! cosa ti è successo?`;
+                break;
+                
+                case 'non voglio dirlo':
+                    reply = `Tieniti pure i tuoi segreti...`;
                 break;
                     
                 default: reply =  'ok'
