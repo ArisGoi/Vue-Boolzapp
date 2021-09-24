@@ -95,7 +95,7 @@ h4{
 /* ------------------------- */
 /* left & Right (common) */
 .topbar{
-    height: 80px;
+    min-height: 80px;
     background-color: var(--c-bg-top);
     padding: 0px 15px;
     display: flex;
@@ -233,6 +233,8 @@ h4{
 
     display: flex;
     flex-direction: column;
+
+    word-break: break-all;
 }
 
 .msg.sent{
